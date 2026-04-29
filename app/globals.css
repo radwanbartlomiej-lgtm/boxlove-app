@@ -1,23 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* RESET + BASE */
 * {
   box-sizing: border-box;
 }
 
 html,
 body {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  background: #050505;
+  color: white;
 }
 
-/* FONTY */
 body {
-  font-family: var(--font-inter);
-  background-color: #050505;
-  color: white;
+  font-family: var(--font-inter), Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -25,45 +21,24 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-playfair);
+  font-family: var(--font-playfair), serif;
   letter-spacing: -0.02em;
 }
 
-/* LINKI */
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-/* SCROLLBAR (premium look) */
-::-webkit-scrollbar {
-  width: 8px;
+button,
+input,
+textarea {
+  font-family: inherit;
 }
 
-::-webkit-scrollbar-track {
-  background: #050505;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* SELEKCJA TEKSTU */
-::selection {
-  background: #ec4899;
-  color: black;
-}
-
-/* INPUTY (lepszy wygląd) */
 input,
 textarea {
   outline: none;
-  transition: all 0.2s ease;
 }
 
 input:focus,
@@ -72,23 +47,7 @@ textarea:focus {
   box-shadow: 0 0 0 1px #ec4899;
 }
 
-/* BUTTON HOVER SMOOTH */
-button {
-  transition: all 0.2s ease;
-}
-
-/* DELIKATNE ANIMACJE */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.4s ease forwards;
+::selection {
+  background: #ec4899;
+  color: black;
 }
