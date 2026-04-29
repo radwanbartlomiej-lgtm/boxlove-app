@@ -1,0 +1,74 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+type CartItem = {
+  quantity: number;
+};
+
+export default function Header() {
+  const [count, setCount] = useState(0);
+
+  function updateCount() {
+    const savedCart = localStorage.getItem("boxlove_cart");
+
+    if (!savedCart) {
+      setCount(0);
+      return;
+    }
+
+    const cart = JSON.parse(savedCart);
+
+    const total = Array.isArray(cart)
+      ? cart.reduce((sum: number, item: CartItem) => sum + item.quantity, 0)
+      : 0;
+
+    setCount(total);
+  }
+
+  useEffect(() => {
+    updateCount();
+
+    window.addEventListener("storage", updateCount);
+    window.addEventListener("focus", updateCount);
+    window.addEventListener("cartUpdated", updateCount);
+
+    return () => {
+      window.removeEventListener("storage", updateCount);
+      window.removeEventListener("focus", updateCount);
+      window.removeEventListener("cartUpdated", updateCount);
+    };
+  }, []);
+
+  return (
+   <header className="sticky top-0 z-40 border-b border-white/10 bg-black shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-center px-6 py-4">
+        <Link href="/" className="block">
+          <Image
+            src="/boxlove-logo.png"
+            alt="BOXLOVE"
+            width={520}
+            height={220}
+            className="h-auto w-72 sm:w-96"
+            priority
+          />
+        </Link>
+
+        <Link
+          href="/koszyk"
+          className="absolute right-6 top-1/2 -translate-y-1/2 rounded-xl border border-white/10 px-4 py-2 text-sm hover:bg-white/10"
+        >
+          Koszyk
+
+          {count > 0 && (
+            <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-xs font-bold text-black">
+              {count}
+            </span>
+          )}
+        </Link>
+      </div>
+    </header>
+  );
+}
