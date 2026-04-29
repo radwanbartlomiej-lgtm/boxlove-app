@@ -4,12 +4,12 @@ import Link from "next/link";
 import { use, useState } from "react";
 
 const boxes = [
-  { id: 1, name: "Box 01", price: 199 },
-  { id: 2, name: "Box 02", price: 219 },
-  { id: 3, name: "Box 03", price: 189 },
-  { id: 4, name: "Box 04", price: 249 },
-  { id: 5, name: "Box 05", price: 169 },
-  { id: 6, name: "Box 06", price: 299 },
+  { id: 1, name: "Box Classic", price: 199 },
+  { id: 2, name: "Box Premium", price: 219 },
+  { id: 3, name: "Box Sweet", price: 189 },
+  { id: 4, name: "Box Party", price: 249 },
+  { id: 5, name: "Box Fit", price: 169 },
+  { id: 6, name: "Box Deluxe", price: 299 },
 ];
 
 export default function BoxPage({
@@ -66,7 +66,7 @@ export default function BoxPage({
   }
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white">
+    <main className="min-h-screen bg-[#050505] pb-28 text-white">
       {toast && (
         <div className="fixed left-1/2 top-6 z-50 flex -translate-x-1/2 items-center gap-4 rounded-2xl bg-pink-500 px-5 py-3 text-sm font-semibold text-black shadow-xl">
           <span>{toast}</span>
@@ -132,7 +132,7 @@ export default function BoxPage({
 
         <button
           onClick={addToCart}
-          className="w-full rounded-2xl bg-pink-500 py-3 text-center font-semibold text-black"
+          className="hidden w-full rounded-2xl bg-pink-500 py-3 text-center font-semibold text-black sm:block"
         >
           Dodaj do koszyka
         </button>
@@ -143,6 +143,15 @@ export default function BoxPage({
         >
           Wróć do listy boxów
         </Link>
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-black p-4 sm:hidden">
+        <button
+          onClick={addToCart}
+          className="w-full rounded-2xl bg-pink-500 py-3 text-center font-semibold text-black"
+        >
+          Dodaj do koszyka • {box.price * quantity} zł
+        </button>
       </div>
     </main>
   );
