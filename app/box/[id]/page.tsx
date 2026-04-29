@@ -19,7 +19,7 @@ export default function BoxPage({
 }) {
   const { id } = use(params);
   const [quantity, setQuantity] = useState(1);
-  const [toast, setToast] = useState("");
+  const [toast, setToast] = useState(false);
 
   const boxId = Number(id);
   const box = boxes.find((item) => item.id === boxId) || boxes[0];
@@ -58,22 +58,33 @@ export default function BoxPage({
     localStorage.setItem("boxlove_cart", JSON.stringify(updatedCart));
     window.dispatchEvent(new Event("cartUpdated"));
 
-    setToast("Dodano do koszyka ✅");
+    setToast(true);
 
     setTimeout(() => {
-      setToast("");
+      setToast(false);
     }, 3000);
   }
 
   return (
     <main className="min-h-screen bg-[#050505] pb-28 text-white">
       {toast && (
-        <div className="fixed left-1/2 top-6 z-50 flex -translate-x-1/2 items-center gap-4 rounded-2xl bg-pink-500 px-5 py-3 text-sm font-semibold text-black shadow-xl">
-          <span>{toast}</span>
+        <div className="fixed left-1/2 top-6 z-50 w-[90%] max-w-sm -translate-x-1/2 rounded-3xl border border-white/10 bg-black/90 p-4 shadow-2xl backdrop-blur">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-pink-500 text-xl">
+              ✅
+            </div>
+
+            <div className="flex-1">
+              <p className="font-semibold text-white">Dodano do koszyka</p>
+              <p className="text-sm text-white/50">
+                {box.name} × {quantity}
+              </p>
+            </div>
+          </div>
 
           <Link
             href="/koszyk"
-            className="rounded-xl bg-black px-3 py-1 text-xs text-white"
+            className="mt-4 block w-full rounded-2xl bg-pink-500 py-3 text-center font-semibold text-black"
           >
             Przejdź do koszyka
           </Link>
