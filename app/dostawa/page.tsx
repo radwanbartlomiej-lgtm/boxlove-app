@@ -5,6 +5,7 @@ import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { pl } from "date-fns/locale";
+import CheckoutSteps from "../CheckoutSteps";
 
 const slots = ["09:00 - 12:00", "12:00 - 15:00", "15:00 - 18:00"];
 
@@ -36,6 +37,7 @@ export default function DeliveryPage() {
     <main className="min-h-screen bg-[#050505] text-white">
       <div className="mx-auto max-w-4xl px-6 py-10">
         <h1 className="mb-3 text-3xl font-bold">Dostawa</h1>
+        <CheckoutSteps active="dostawa" />
 
         <p className="mb-8 text-sm text-white/60">
           Zamówienie należy złożyć minimum 48 godzin przed planowaną dostawą.

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CheckoutSteps from "../CheckoutSteps";
 
 type CartItem = {
   boxId: number;
@@ -116,6 +117,7 @@ export default function CustomerDataPage() {
     <main className="min-h-screen bg-[#050505] text-white">
       <div className="mx-auto max-w-3xl px-6 py-10">
         <h1 className="mb-6 text-3xl font-bold">Dane do zamówienia</h1>
+        <CheckoutSteps active="dane" />
 
         {errors.cart && (
           <p className="mb-4 text-red-400">{errors.cart}</p>

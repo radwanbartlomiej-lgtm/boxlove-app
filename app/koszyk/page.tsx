@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import CheckoutSteps from "../CheckoutSteps";
 
 type CartItem = {
   boxId: number;
@@ -43,7 +44,7 @@ export default function CartPage() {
       <main className="min-h-screen bg-[#050505] text-white">
         <div className="mx-auto max-w-4xl px-6 py-10">
           <h1 className="mb-8 text-3xl font-bold">Koszyk</h1>
-
+<CheckoutSteps active="koszyk" />
           <p className="text-white/60">Koszyk jest pusty.</p>
 
           <Link
