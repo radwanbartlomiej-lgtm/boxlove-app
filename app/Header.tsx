@@ -10,6 +10,7 @@ type CartItem = {
 
 export default function Header() {
   const [count, setCount] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
 
   function updateCount() {
     const savedCart = localStorage.getItem("boxlove_cart");
@@ -31,11 +32,17 @@ export default function Header() {
   useEffect(() => {
     updateCount();
 
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
     window.addEventListener("storage", updateCount);
     window.addEventListener("focus", updateCount);
     window.addEventListener("cartUpdated", updateCount);
 
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("storage", updateCount);
       window.removeEventListener("focus", updateCount);
       window.removeEventListener("cartUpdated", updateCount);
@@ -43,22 +50,28 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-black shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-3 px-6 py-4 sm:relative sm:flex-row">
-        <Link href="/" className="block">
+    <header
+      className={`sticky top-0 z-40 border-b border-white/10 bg-black transition-all duration-300 ${
+        scrolled ? "py-2" : "py-4"
+      }`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6">
+        <Link href="/" className="flex items-center">
           <Image
             src="/boxlove-logo.png"
             alt="BOXLOVE"
             width={520}
             height={220}
-            className="h-auto w-72 sm:w-96"
+            className={`h-auto transition-all duration-300 ${
+              scrolled ? "w-32" : "w-52 sm:w-80"
+            }`}
             priority
           />
         </Link>
 
         <Link
           href="/koszyk"
-          className="relative rounded-xl border border-white/15 bg-black px-5 py-2 text-sm font-semibold text-white hover:bg-white/10 sm:absolute sm:right-6 sm:top-1/2 sm:-translate-y-1/2"
+          className="relative rounded-xl border border-white/15 bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
         >
           Koszyk
 
