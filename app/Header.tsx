@@ -43,8 +43,8 @@ export default function Header() {
   }, []);
 
   return (
-   <header className="sticky top-0 z-40 border-b border-white/10 bg-black shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
-      <div className="relative mx-auto flex max-w-6xl items-center justify-center px-6 py-4">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-black shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-3 px-6 py-4 sm:relative sm:flex-row">
         <Link href="/" className="block">
           <Image
             src="/boxlove-logo.png"
@@ -58,7 +58,7 @@ export default function Header() {
 
         <Link
           href="/koszyk"
-          className="absolute right-6 top-1/2 -translate-y-1/2 rounded-xl border border-white/10 px-4 py-2 text-sm hover:bg-white/10"
+          className="relative rounded-xl border border-white/15 bg-black px-5 py-2 text-sm font-semibold text-white hover:bg-white/10 sm:absolute sm:right-6 sm:top-1/2 sm:-translate-y-1/2"
         >
           Koszyk
 
