@@ -31,28 +31,20 @@ export default function SplashScreen() {
       }`}
     >
       <div
-        className={`flex flex-col items-center transition-all duration-700 ${
+        className={`flex w-full flex-col items-center px-8 transition-all duration-700 ${
           leaving ? "scale-95 opacity-0" : "scale-100 opacity-100"
         }`}
       >
-        <div className="relative">
-          <div className="absolute inset-0 rounded-[2rem] bg-pink-500/30 blur-2xl" />
+        <Image
+          src="/boxlove-logo.png"
+          alt="BOXLOVE"
+          width={520}
+          height={220}
+          className="h-auto w-full max-w-xs sm:max-w-md"
+          priority
+        />
 
-          <Image
-            src="/boxlove-logo.png"
-            alt="BOXLOVE"
-            width={190}
-            height={190}
-            className="relative rounded-[2rem] shadow-[0_20px_80px_rgba(236,72,153,0.35)]"
-            priority
-          />
-        </div>
-
-        <p className="mt-6 text-sm font-semibold uppercase tracking-[0.4em] text-pink-400">
-          BOXLOVE
-        </p>
-
-        <div className="mt-5 h-1 w-40 overflow-hidden rounded-full bg-white/10">
+        <div className="mt-8 h-1 w-40 overflow-hidden rounded-full bg-white/10">
           <div className="h-full w-full animate-[loadingBar_1.4s_ease-in-out_forwards] rounded-full bg-pink-500" />
         </div>
       </div>
