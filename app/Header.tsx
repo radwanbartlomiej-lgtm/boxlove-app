@@ -45,8 +45,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-black">
       <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
-        {/* LOGO */}
-        <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
           <Link href="/">
             <Image
               src="/boxlove-logo.png"
@@ -58,23 +57,21 @@ export default function Header() {
             />
           </Link>
 
-          {/* MENU DESKTOP */}
-          <nav className="hidden items-center gap-6 text-sm text-white/70 sm:flex">
-            <a href="#sklep" className="hover:text-white">
+          <nav className="hidden items-center gap-6 text-sm font-medium text-white/70 sm:flex">
+            <Link href="/#sklep" className="hover:text-white">
               Sklep
-            </a>
-            <a href="#onas" className="hover:text-white">
+            </Link>
+            <Link href="/#onas" className="hover:text-white">
               O nas
-            </a>
-            <a href="#dostawa" className="hover:text-white">
+            </Link>
+            <Link href="/#dostawa" className="hover:text-white">
               Dostawa
-            </a>
-            <a href="#kontakt" className="hover:text-white">
+            </Link>
+            <Link href="/#kontakt" className="hover:text-white">
               Kontakt
-            </a>
+            </Link>
           </nav>
 
-          {/* KOSZYK */}
           <Link
             href="/koszyk"
             className="relative rounded-xl border border-white/15 bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
@@ -89,20 +86,19 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* MENU MOBILE */}
-        <nav className="mt-3 flex justify-center gap-4 text-sm text-white/70 sm:hidden">
-          <a href="#sklep" className="hover:text-white">
+        <nav className="mt-3 flex justify-center gap-4 text-sm font-medium text-white/70 sm:hidden">
+          <Link href="/#sklep" className="hover:text-white">
             Sklep
-          </a>
-          <a href="#onas" className="hover:text-white">
+          </Link>
+          <Link href="/#onas" className="hover:text-white">
             O nas
-          </a>
-          <a href="#dostawa" className="hover:text-white">
+          </Link>
+          <Link href="/#dostawa" className="hover:text-white">
             Dostawa
-          </a>
-          <a href="#kontakt" className="hover:text-white">
+          </Link>
+          <Link href="/#kontakt" className="hover:text-white">
             Kontakt
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

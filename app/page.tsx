@@ -54,7 +54,10 @@ const boxes = [
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#050505] text-white">
-      <section id="sklep" className="scroll-mt-40 mx-auto max-w-6xl px-5 py-10 sm:px-6">
+      <section
+        id="sklep"
+        className="scroll-mt-28 mx-auto max-w-6xl px-5 py-10 sm:scroll-mt-32 sm:px-6"
+      >
         <div className="mb-10 text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-pink-400">
             Gotowe na każdą okazję
@@ -113,7 +116,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="onas" className="scroll-mt-40 mx-auto max-w-4xl px-6 py-20 text-center">
+      <section
+        id="onas"
+        className="scroll-mt-28 mx-auto max-w-4xl px-6 py-20 text-center sm:scroll-mt-32"
+      >
         <p className="mb-3 text-xs uppercase tracking-[0.35em] text-pink-400">
           Kim jesteśmy
         </p>
@@ -129,7 +135,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="dostawa" className="scroll-mt-40 mx-auto max-w-4xl px-6 py-20 text-center">
+      <section
+        id="dostawa"
+        className="scroll-mt-28 mx-auto max-w-4xl px-6 py-20 text-center sm:scroll-mt-32"
+      >
         <p className="mb-3 text-xs uppercase tracking-[0.35em] text-pink-400">
           Jak dostarczamy
         </p>
@@ -145,7 +154,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="kontakt" className="scroll-mt-40 mx-auto max-w-4xl px-6 py-20 text-center">
+      <section
+        id="kontakt"
+        className="scroll-mt-28 mx-auto max-w-4xl px-6 py-20 text-center sm:scroll-mt-32"
+      >
         <p className="mb-3 text-xs uppercase tracking-[0.35em] text-pink-400">
           Napisz do nas
         </p>
@@ -155,7 +167,10 @@ export default function HomePage() {
         <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 text-white/60">
           <p>
             E-mail:{" "}
-            <a href="mailto:zamawiam@boxlove.pl" className="text-pink-400 underline">
+            <a
+              href="mailto:zamawiam@boxlove.pl"
+              className="text-pink-400 underline"
+            >
               zamawiam@boxlove.pl
             </a>
           </p>
