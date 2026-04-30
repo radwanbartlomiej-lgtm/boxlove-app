@@ -1,5 +1,7 @@
 import "./globals.css";
 import Header from "./Header";
+import SplashScreen from "./SplashScreen";
+
 import { Inter, Playfair_Display } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 
@@ -17,15 +19,17 @@ export const metadata: Metadata = {
   title: "BOXLOVE",
   description: "Boxy eventowe z dostawą",
   applicationName: "BOXLOVE",
+
   appleWebApp: {
     capable: true,
     title: "BOXLOVE",
     statusBarStyle: "black-translucent",
   },
-icons: {
-  icon: "/app-icon.png",
-  apple: "/app-icon.png",
-},
+
+  icons: {
+    icon: "/app-icon.png",
+    apple: "/app-icon.png",
+  },
 };
 
 export const viewport: Viewport = {
@@ -42,7 +46,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} bg-[#050505] text-white`}
       >
+        {/* SPLASH SCREEN */}
+        <SplashScreen />
+
+        {/* HEADER */}
         <Header />
+
+        {/* CONTENT */}
         {children}
       </body>
     </html>
