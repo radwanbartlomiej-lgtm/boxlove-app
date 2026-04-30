@@ -54,7 +54,7 @@ const boxes = [
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#050505] text-white">
-      <section id="sklep" className="mx-auto max-w-6xl px-5 py-10 sm:px-6">
+      <section id="sklep" className="scroll-mt-40 mx-auto max-w-6xl px-5 py-10 sm:px-6">
         <div className="mb-10 text-center">
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-pink-400">
             Gotowe na każdą okazję
@@ -113,24 +113,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="onas" className="mx-auto max-w-4xl px-6 py-16 text-center">
+      <section id="onas" className="scroll-mt-40 mx-auto max-w-4xl px-6 py-20 text-center">
         <p className="mb-3 text-xs uppercase tracking-[0.35em] text-pink-400">
           Kim jesteśmy
         </p>
 
         <h2 className="mb-4 text-3xl font-bold">O nas</h2>
 
-        <p className="text-sm leading-7 text-white/60 sm:text-base">
-          BOXLOVE to eleganckie boxy eventowe tworzone z myślą o wyjątkowych
-          chwilach — spotkaniach, prezentach, urodzinach, randkach i eventach.
-          Stawiamy na estetykę, wygodę i efekt wow.
-        </p>
+        <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+          <p className="text-sm leading-7 text-white/60 sm:text-base">
+            BOXLOVE to eleganckie boxy eventowe tworzone z myślą o wyjątkowych
+            chwilach — spotkaniach, prezentach, urodzinach, randkach i eventach.
+            Stawiamy na estetykę, wygodę i efekt wow.
+          </p>
+        </div>
       </section>
 
-      <section
-        id="dostawa"
-        className="mx-auto max-w-4xl px-6 py-16 text-center"
-      >
+      <section id="dostawa" className="scroll-mt-40 mx-auto max-w-4xl px-6 py-20 text-center">
         <p className="mb-3 text-xs uppercase tracking-[0.35em] text-pink-400">
           Jak dostarczamy
         </p>
@@ -142,16 +141,11 @@ export default function HomePage() {
           <p className="mt-2">
             Dostawa do 10 km od Ożarowa Mazowieckiego jest darmowa.
           </p>
-          <p className="mt-2">
-            Poza tą strefą koszt dostawy wynosi 19 zł.
-          </p>
+          <p className="mt-2">Poza tą strefą koszt dostawy wynosi 19 zł.</p>
         </div>
       </section>
 
-      <section
-        id="kontakt"
-        className="mx-auto max-w-4xl px-6 py-16 text-center"
-      >
+      <section id="kontakt" className="scroll-mt-40 mx-auto max-w-4xl px-6 py-20 text-center">
         <p className="mb-3 text-xs uppercase tracking-[0.35em] text-pink-400">
           Napisz do nas
         </p>
@@ -161,10 +155,7 @@ export default function HomePage() {
         <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 text-white/60">
           <p>
             E-mail:{" "}
-            <a
-              href="mailto:zamawiam@boxlove.pl"
-              className="text-pink-400 underline"
-            >
+            <a href="mailto:zamawiam@boxlove.pl" className="text-pink-400 underline">
               zamawiam@boxlove.pl
             </a>
           </p>
