@@ -10,7 +10,6 @@ type CartItem = {
 
 export default function Header() {
   const [count, setCount] = useState(0);
-  const [scrolled, setScrolled] = useState(false);
 
   function updateCount() {
     const savedCart = localStorage.getItem("boxlove_cart");
@@ -32,17 +31,11 @@ export default function Header() {
   useEffect(() => {
     updateCount();
 
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
     window.addEventListener("storage", updateCount);
     window.addEventListener("focus", updateCount);
     window.addEventListener("cartUpdated", updateCount);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("storage", updateCount);
       window.removeEventListener("focus", updateCount);
       window.removeEventListener("cartUpdated", updateCount);
@@ -50,37 +43,67 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-40 border-b border-white/10 bg-black transition-all duration-300 ${
-        scrolled ? "py-2" : "py-4"
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/boxlove-logo.png"
-            alt="BOXLOVE"
-            width={520}
-            height={220}
-            className={`h-auto transition-all duration-300 ${
-              scrolled ? "w-32" : "w-52 sm:w-80"
-            }`}
-            priority
-          />
-        </Link>
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-black">
+      <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
+        {/* LOGO */}
+        <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
+          <Link href="/">
+            <Image
+              src="/boxlove-logo.png"
+              alt="BOXLOVE"
+              width={520}
+              height={220}
+              className="h-auto w-48 sm:w-72"
+              priority
+            />
+          </Link>
 
-        <Link
-          href="/koszyk"
-          className="relative rounded-xl border border-white/15 bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
-        >
-          Koszyk
+          {/* MENU DESKTOP */}
+          <nav className="hidden items-center gap-6 text-sm text-white/70 sm:flex">
+            <a href="#sklep" className="hover:text-white">
+              Sklep
+            </a>
+            <a href="#onas" className="hover:text-white">
+              O nas
+            </a>
+            <a href="#dostawa" className="hover:text-white">
+              Dostawa
+            </a>
+            <a href="#kontakt" className="hover:text-white">
+              Kontakt
+            </a>
+          </nav>
 
-          {count > 0 && (
-            <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-xs font-bold text-black">
-              {count}
-            </span>
-          )}
-        </Link>
+          {/* KOSZYK */}
+          <Link
+            href="/koszyk"
+            className="relative rounded-xl border border-white/15 bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-white/10"
+          >
+            Koszyk
+
+            {count > 0 && (
+              <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-xs font-bold text-black">
+                {count}
+              </span>
+            )}
+          </Link>
+        </div>
+
+        {/* MENU MOBILE */}
+        <nav className="mt-3 flex justify-center gap-4 text-sm text-white/70 sm:hidden">
+          <a href="#sklep" className="hover:text-white">
+            Sklep
+          </a>
+          <a href="#onas" className="hover:text-white">
+            O nas
+          </a>
+          <a href="#dostawa" className="hover:text-white">
+            Dostawa
+          </a>
+          <a href="#kontakt" className="hover:text-white">
+            Kontakt
+          </a>
+        </nav>
       </div>
     </header>
   );
